@@ -1,8 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
-#include <QMainWindow>
-
+#include "choosetheme.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -17,6 +15,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    //重写paintEvent事件，画背景图
+
+    void paintEvent(QPaintEvent*);
+
+    choosetheme*levelscene=NULL;
 private:
     Ui::MainWindow *ui;
 };
