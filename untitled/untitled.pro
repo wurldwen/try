@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     choosetheme.cpp \
+    coin.cpp \
+    data.cpp \
     main.cpp \
     mainwindow.cpp \
     mypushbutton.cpp \
@@ -17,6 +19,8 @@ SOURCES += \
 
 HEADERS += \
     choosetheme.h \
+    coin.h \
+    data.h \
     mainwindow.h \
     mypushbutton.h \
     playscene.h

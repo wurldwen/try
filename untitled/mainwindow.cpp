@@ -23,9 +23,16 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     //开始按钮实现
-    MyPushButton*startButton=new MyPushButton(":/res/MenuSceneStartButton.png");
+    QString s=":/res/MenuSceneStartButton.png";
+    QPixmap pix;
+    pix.load(s);
+    pix=pix.scaled(pix.width()*1.3,pix.height()*1.3,Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    MyPushButton*startButton=new MyPushButton(s);
     startButton->setParent(this);
-    startButton->move(this->width()*0.5-startButton->width()*0.5,this->height()*0.7);
+    startButton->setFixedSize(pix.size());
+    startButton->setIcon(pix);
+    startButton->setIconSize(pix.size());
+    startButton->move(this->width()*0.5-startButton->width()*0.5,this->height()*0.5);
     levelscene=new choosetheme;
     //监听选择关卡的返回按钮信号
     connect(levelscene,&choosetheme::cback,this,[=](){
@@ -46,13 +53,14 @@ MainWindow::MainWindow(QWidget *parent)
 }
 void MainWindow::paintEvent(QPaintEvent*){
     QPainter painter(this);
+   painter.setRenderHint(QPainter::Antialiasing, true);
     QPixmap pix;
     pix.load(":/res/PlayLevelSceneBg.png");
     painter.drawPixmap(0,0,this->width(),this->height(),pix);
 
     //画背景上图标
     pix.load(":/res/Title.png");
-    pix.scaled(pix.width()*0.5,pix.height()*0.5);
+    pix=pix.scaled(pix.width()*0.9,pix.height()*0.9);
     painter.drawPixmap(10,30,pix);
 
 }

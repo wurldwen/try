@@ -3,9 +3,9 @@
 #include<QMenuBar>
 #include<QPainter>
 #include<QMainWindow>
-#include<QTimer>
 #include<QLabel>
 #include<mypushbutton.h>
+#include"coin.h"
 class PlayScene : public QMainWindow
 {
     Q_OBJECT
@@ -14,6 +14,8 @@ public:
     PlayScene(int levelnum);
     int levelIndex;
     void paintEvent(QPaintEvent*);
+    int gameArr[4][4];//维护每个关卡具体数据
+    Coin*coinarr[4][4];
 signals:
     void cback();
 };

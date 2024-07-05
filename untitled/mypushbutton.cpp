@@ -11,6 +11,7 @@ MyPushButton::MyPushButton(QString nImg,QString pImg){
         qDebug()<<"load failed";
         return;
     }
+    //pix=pix.scaled(pix.width()*1.25,pix.height()*1.25);
     //设置图片固定大小
     this->setFixedSize(pix.width(),pix.height());
     //设置不规则图片样式

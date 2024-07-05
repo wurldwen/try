@@ -58,6 +58,7 @@ choosetheme::choosetheme(QWidget *parent)
 }
 void choosetheme::paintEvent(QPaintEvent*){
     QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
     QPixmap pix;
     pix.load(":/res/OtherSceneBg.png");
     painter.drawPixmap(0,0,this->width(),this->height(),pix);
