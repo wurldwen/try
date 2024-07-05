@@ -16,6 +16,7 @@ public:
     void paintEvent(QPaintEvent*);
     int gameArr[4][4];//维护每个关卡具体数据
     Coin*coinarr[4][4];
+    bool iswin;
 signals:
     void cback();
 };

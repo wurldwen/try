@@ -1,5 +1,5 @@
-QT       += core gui
-
+QT        += core gui #multimedia
+#QT       +=直接加在第一行
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -28,6 +28,9 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+#RC_ICONS=ys.ico;
+#RC_FILE += ys.rc   //你的资源文件名
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -35,3 +38,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     res.qrc
+
+DISTFILES += \
+    ys.ico
+
+RC_ICONS+= ys.ico

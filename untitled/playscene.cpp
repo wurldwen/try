@@ -42,6 +42,10 @@ PlayScene::PlayScene(int n)
             this->gameArr[i][j]=data.mData[this->levelIndex][i][j];
         }}
 
+    //胜利图片显示
+    MyPushButton*win=new MyPushButton(":/res/LevelCompletedDialogBg.png");
+    win->setParent(this);
+    win->move((this->width()-win->width())*0.5,-win->height());
     //显示金币背景图案
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
@@ -90,6 +94,11 @@ PlayScene::PlayScene(int n)
                         coinarr[coin->x][coin->y-1]->changeflag();
                         this->gameArr[coin->x][coin->y-1]=!this->gameArr[coin->x][coin->y-1];
                     }
+                    //判断是否胜利
+                    this->iswin=true;
+                    win->jump('d',win->height(),1000);
+                    for(int i=0;i<4;i++)for(int j=0;j<4;j++)if(this->coinarr[i][j]->flag==false)this->iswin=false;
+                    if(this->iswin)for(int i=0;i<4;i++)for(int j=0;j<4;j++)this->coinarr[i][j]->iswin=true;
                 });
 
             });

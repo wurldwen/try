@@ -74,7 +74,7 @@ void Coin::changeflag(){
     }
 }
 void Coin::mousePressEvent(QMouseEvent*e){
-    if(this->animationing)return;
+    if(this->animationing||this->iswin)return;
     else return QPushButton::mousePressEvent(e);
 }
 

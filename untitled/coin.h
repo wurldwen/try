@@ -2,7 +2,8 @@
 #define COIN_H
 #include<QTimer>
 #include <QPushButton>
-
+//需要现在.pro文件中+=multimedia
+//#include<QSound>
 class Coin : public QPushButton
 {
     Q_OBJECT
@@ -11,7 +12,7 @@ public:
 
     Coin(QString bImg);
     int x,y;
-    bool flag;//正反
+    bool flag=false;//正反
     void changeflag();
     QTimer*time1;
     QTimer*time2;
@@ -20,7 +21,7 @@ public:
 
     bool animationing=false;
     void mousePressEvent(QMouseEvent*e);
-
+    bool iswin=false;
 signals:
 };
 
